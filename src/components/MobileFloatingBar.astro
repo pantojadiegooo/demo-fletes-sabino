@@ -1,0 +1,24 @@
+---
+const phoneNumber = '525532814905';
+const whatsappLink = 'https://wa.me/' + phoneNumber;
+---
+
+<div class="mobile-floating-bar" aria-label="Acciones rápidas de contacto" data-mobile-bar>
+  <div class="mobile-bar-inner">
+    <a class="bar-btn bar-btn-whatsapp" href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Fletes y Mudanzas Sabino">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4a8.4 8.4 0 1 1 15.6-4.4Z"></path>
+        <path d="M8.1 7.7c.2-.5.5-.5.8-.5h.4c.1 0 .3 0 .4.3l.7 1.7c.1.2.1.4 0 .5l-.6.8c-.1.2-.2.3 0 .5.6 1.1 1.4 1.9 2.5 2.5.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.4 0 .2-.1 1.2-.6 1.7-.4.5-1.2.8-1.8.8-.5 0-1.2-.2-2.1-.6-1.1-.5-4.3-2.2-5.5-5.2-.3-.8-.3-1.6 0-2.5Z"></path>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <a class="bar-btn bar-btn-quote" href="#cotizar" aria-label="Ir al cotizador">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+        <rect x="9" y="3" width="6" height="4" rx="1"></rect>
+        <path d="m9 14 2 2 4-4"></path>
+      </svg>
+      <span>Cotizar</span>
+    </a>
+  </div>
+</div>

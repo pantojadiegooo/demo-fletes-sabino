@@ -1,68 +1,115 @@
 <section class="quote section" id="cotizar" aria-labelledby="quote-title">
   <div class="container quote-layout">
     <div class="quote-intro" data-reveal>
-      <p class="eyebrow"><span></span> Cotización por WhatsApp</p>
+      <p class="eyebrow"><span></span> Cotización directa</p>
       <h2 id="quote-title">Traza tu próxima ruta.</h2>
-      <p>Completa los datos básicos. Al continuar, abriremos WhatsApp con tu solicitud ordenada y lista para enviar.</p>
-      <ol class="quote-steps" aria-label="Proceso de cotización">
-        <li><span>1</span><p><strong>Define la ruta</strong><small>Origen y destino.</small></p></li>
-        <li><span>2</span><p><strong>Elige el servicio</strong><small>Flete o tipo de mudanza.</small></p></li>
-        <li><span>3</span><p><strong>Envía por WhatsApp</strong><small>Recibe atención directa.</small></p></li>
-      </ol>
+      <p>Completa los datos básicos. En tiempo real verás el mensaje que prepararemos para ti antes de enviarlo por WhatsApp.</p>
+
+      <!-- Flujo visual de 3 pasos requerido -->
+      <div class="quote-flow-container" aria-label="Proceso de cotización en 3 pasos">
+        <p class="quote-flow-title">Cómo funciona:</p>
+        <ol class="quote-steps">
+          <li>
+            <span>01</span>
+            <p><strong>Cuéntanos tu traslado</strong><small>Origen, destino y tipo de servicio.</small></p>
+          </li>
+          <li>
+            <span>02</span>
+            <p><strong>Preparamos tu mensaje</strong><small>Revisa el mensaje estructurado en la vista previa.</small></p>
+          </li>
+          <li>
+            <span>03</span>
+            <p><strong>Abre WhatsApp y envíalo</strong><small>Atención personalizada directa sin formularios opacos.</small></p>
+          </li>
+        </ol>
+      </div>
     </div>
 
     <div class="quote-panel" data-reveal>
       <div class="quote-panel-top">
-        <span>Solicitud de ruta</span>
-        <span class="secure-note"><i></i> Sin registro</span>
+        <span>Formulario de cotización</span>
+        <span class="secure-note"><i></i> Sin almacenamiento · Privado</span>
       </div>
-      <form class="quote-form" data-quote-form novalidate>
-        <div class="form-error-summary" role="alert" aria-live="polite" tabindex="-1" data-error-summary hidden></div>
 
-        <div class="field-grid">
-          <div class="field">
-            <label for="origen">Origen <span aria-hidden="true">*</span></label>
-            <input id="origen" name="origen" type="text" autocomplete="street-address" placeholder="¿Desde dónde sales?" required aria-describedby="origen-error" />
-            <p class="field-error" id="origen-error" data-error-for="origen"></p>
-          </div>
-          <div class="route-connector" aria-hidden="true"><span></span></div>
-          <div class="field">
-            <label for="destino">Destino <span aria-hidden="true">*</span></label>
-            <input id="destino" name="destino" type="text" autocomplete="off" placeholder="¿A dónde necesitas llegar?" required aria-describedby="destino-error" />
-            <p class="field-error" id="destino-error" data-error-for="destino"></p>
-          </div>
-        </div>
+      <div class="quote-form-layout">
+        <!-- Formulario -->
+        <form class="quote-form" data-quote-form novalidate>
+          <div class="form-error-summary" role="alert" aria-live="polite" tabindex="-1" data-error-summary hidden></div>
 
-        <div class="field-grid field-grid-even">
-          <div class="field">
-            <label for="fecha">Fecha aproximada <span class="optional">Opcional</span></label>
-            <input id="fecha" name="fecha" type="date" aria-describedby="fecha-hint" />
-            <p class="field-hint" id="fecha-hint">Puedes confirmarla después.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="origen">Origen <span aria-hidden="true">*</span></label>
+              <input id="origen" name="origen" type="text" autocomplete="street-address" placeholder="¿Desde dónde sales?" required aria-describedby="origen-error" />
+              <p class="field-error" id="origen-error" data-error-for="origen"></p>
+            </div>
+            <div class="route-connector" aria-hidden="true"><span></span></div>
+            <div class="field">
+              <label for="destino">Destino <span aria-hidden="true">*</span></label>
+              <input id="destino" name="destino" type="text" autocomplete="off" placeholder="¿A dónde necesitas llegar?" required aria-describedby="destino-error" />
+              <p class="field-error" id="destino-error" data-error-for="destino"></p>
+            </div>
           </div>
-          <div class="field">
-            <label for="servicio">Tipo de servicio <span aria-hidden="true">*</span></label>
-            <select id="servicio" name="servicio" required aria-describedby="servicio-error">
-              <option value="">Selecciona una opción</option>
-              <option value="Flete">Flete</option>
-              <option value="Mudanza residencial">Mudanza residencial</option>
-              <option value="Mudanza comercial">Mudanza comercial</option>
-            </select>
-            <p class="field-error" id="servicio-error" data-error-for="servicio"></p>
+
+          <div class="field-grid field-grid-even">
+            <div class="field">
+              <label for="fecha">Fecha aproximada <span class="optional">Opcional</span></label>
+              <input id="fecha" name="fecha" type="date" aria-describedby="fecha-hint" />
+              <p class="field-hint" id="fecha-hint">Puedes definirla después con nosotros.</p>
+            </div>
+            <div class="field">
+              <label for="servicio">Tipo de servicio <span aria-hidden="true">*</span></label>
+              <select id="servicio" name="servicio" required aria-describedby="servicio-error">
+                <option value="">Selecciona una opción</option>
+                <option value="Flete">Flete</option>
+                <option value="Mudanza residencial">Mudanza residencial</option>
+                <option value="Mudanza comercial">Mudanza comercial</option>
+              </select>
+              <p class="field-error" id="servicio-error" data-error-for="servicio"></p>
+            </div>
           </div>
-        </div>
 
-        <div class="field">
-          <label for="observaciones">Observaciones <span class="optional">Opcional</span></label>
-          <textarea id="observaciones" name="observaciones" rows="4" placeholder="Cuéntanos qué necesitas trasladar o cualquier detalle útil"></textarea>
-        </div>
+          <div class="field">
+            <label for="observaciones">Observaciones <span class="optional">Opcional</span></label>
+            <textarea id="observaciones" name="observaciones" rows="3" placeholder="Detalles de mobiliario, pisos, si hay elevador o particularidades del traslado"></textarea>
+          </div>
 
-        <button class="button button-whatsapp" type="submit">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4a8.4 8.4 0 1 1 15.6-4.4Z"/><path d="M8.1 7.7c.2-.5.5-.5.8-.5h.4c.1 0 .3 0 .4.3l.7 1.7c.1.2.1.4 0 .5l-.6.8c-.1.2-.2.3 0 .5.6 1.1 1.4 1.9 2.5 2.5.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.4 0 .2-.1 1.2-.6 1.7-.4.5-1.2.8-1.8.8-.5 0-1.2-.2-2.1-.6-1.1-.5-4.3-2.2-5.5-5.2-.3-.8-.3-1.6 0-2.5Z"/></svg>
-          Solicitar cotización por WhatsApp
-          <span aria-hidden="true">→</span>
-        </button>
-        <p class="privacy-note">Tus datos no se guardan en este sitio. Se usan únicamente para preparar el mensaje que tú decides enviar.</p>
-      </form>
+          <!-- Vista previa visual del mensaje de WhatsApp -->
+          <div class="whatsapp-preview-card" aria-label="Vista previa del mensaje a enviar">
+            <div class="whatsapp-preview-header">
+              <div class="wa-status-left">
+                <span class="wa-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4a8.4 8.4 0 1 1 15.6-4.4Z"/><path d="M8.1 7.7c.2-.5.5-.5.8-.5h.4c.1 0 .3 0 .4.3l.7 1.7c.1.2.1.4 0 .5l-.6.8c-.1.2-.2.3 0 .5.6 1.1 1.4 1.9 2.5 2.5.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.4 0 .2-.1 1.2-.6 1.7-.4.5-1.2.8-1.8.8-.5 0-1.2-.2-2.1-.6-1.1-.5-4.3-2.2-5.5-5.2-.3-.8-.3-1.6 0-2.5Z"/></svg>
+                </span>
+                <span>Vista previa del mensaje en WhatsApp</span>
+              </div>
+              <span class="wa-badge">Mensaje listo</span>
+            </div>
+
+            <div class="whatsapp-bubble">
+              <p class="bubble-greeting">Hola, quiero solicitar una cotización con Fletes y Mudanzas Sabino.</p>
+              <div class="bubble-fields">
+                <p><strong>Origen:</strong> <span data-preview="origen">Por definir</span></p>
+                <p><strong>Destino:</strong> <span data-preview="destino">Por definir</span></p>
+                <p><strong>Fecha aproximada:</strong> <span data-preview="fecha">Por confirmar</span></p>
+                <p><strong>Servicio:</strong> <span data-preview="servicio">Por definir</span></p>
+                <p><strong>Observaciones:</strong> <span data-preview="observaciones">Sin observaciones adicionales</span></p>
+              </div>
+              <p class="bubble-farewell">Gracias.</p>
+              <div class="bubble-time">
+                <span data-bubble-clock>10:00</span>
+                <span class="bubble-checks" aria-hidden="true">✓✓</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="button button-whatsapp" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.4-4.4a8.4 8.4 0 1 1 15.6-4.4Z"/><path d="M8.1 7.7c.2-.5.5-.5.8-.5h.4c.1 0 .3 0 .4.3l.7 1.7c.1.2.1.4 0 .5l-.6.8c-.1.2-.2.3 0 .5.6 1.1 1.4 1.9 2.5 2.5.2.1.4.1.5-.1l.8-1c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.4 0 .2-.1 1.2-.6 1.7-.4.5-1.2.8-1.8.8-.5 0-1.2-.2-2.1-.6-1.1-.5-4.3-2.2-5.5-5.2-.3-.8-.3-1.6 0-2.5Z"/></svg>
+            Abrir conversación en WhatsApp
+            <span aria-hidden="true">→</span>
+          </button>
+          <p class="privacy-note">El sitio no envía automáticamente. Al hacer clic se abrirá WhatsApp con los datos que ves arriba para que tú decidas enviarlos.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -70,48 +117,83 @@
 <script>
   import { buildWhatsAppUrl } from '../scripts/quote-message.mjs';
 
-  const form = document.querySelector<HTMLFormElement>('[data-quote-form]');
-  const summary = document.querySelector<HTMLElement>('[data-error-summary]');
-  const serviceLinks = document.querySelectorAll<HTMLAnchorElement>('[data-service]');
+  const form = document.querySelector('[data-quote-form]');
+  const summary = document.querySelector('[data-error-summary]');
+  const serviceLinks = document.querySelectorAll('[data-service]');
+
+  // Live preview nodes
+  const prevOrigin = document.querySelector('[data-preview="origen"]');
+  const prevDest = document.querySelector('[data-preview="destino"]');
+  const prevDate = document.querySelector('[data-preview="fecha"]');
+  const prevService = document.querySelector('[data-preview="servicio"]');
+  const prevNotes = document.querySelector('[data-preview="observaciones"]');
+  const clockNode = document.querySelector('[data-bubble-clock]');
+
+  const updateClock = () => {
+    if (clockNode) {
+      const now = new Date();
+      clockNode.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+  };
+  updateClock();
+
+  const updatePreview = () => {
+    if (!form) return;
+    const data = new FormData(form);
+    const val = (k) => String(data.get(k) ?? '').trim();
+
+    if (prevOrigin) prevOrigin.textContent = val('origen') || 'Por definir';
+    if (prevDest) prevDest.textContent = val('destino') || 'Por definir';
+    if (prevDate) prevDate.textContent = val('fecha') || 'Por confirmar';
+    if (prevService) prevService.textContent = val('servicio') || 'Por definir';
+    if (prevNotes) prevNotes.textContent = val('observaciones') || 'Sin observaciones adicionales';
+  };
 
   serviceLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      const select = document.querySelector<HTMLSelectElement>('#servicio');
-      if (select) select.value = link.dataset.service ?? '';
+      const select = document.querySelector('#servicio');
+      if (select) {
+        select.value = link.dataset.service ?? '';
+        select.dispatchEvent(new Event('input', { bubbles: true }));
+      }
     });
   });
 
-  const errorMessages: Record<string, string> = {
+  const errorMessages = {
     origen: 'Escribe el lugar de origen.',
     destino: 'Escribe el lugar de destino.',
     servicio: 'Selecciona el tipo de servicio.',
   };
 
-  const clearError = (field: HTMLInputElement | HTMLSelectElement) => {
+  const clearError = (field) => {
     field.removeAttribute('aria-invalid');
-    const error = document.querySelector<HTMLElement>(`[data-error-for="${field.name}"]`);
+    const error = document.querySelector('[data-error-for="' + field.name + '"]');
     if (error) error.textContent = '';
   };
 
-  ['origen', 'destino', 'servicio'].forEach((name) => {
-    const field = form?.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null;
+  ['origen', 'destino', 'fecha', 'servicio', 'observaciones'].forEach((name) => {
+    const field = form?.elements.namedItem(name);
     field?.addEventListener('input', () => {
-      if (field.value.trim()) clearError(field);
+      if (field.name in errorMessages && field.value.trim()) {
+        clearError(field);
+      }
+      updatePreview();
     });
+    field?.addEventListener('change', updatePreview);
   });
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(form);
     const required = ['origen', 'destino', 'servicio'];
-    const invalid: (HTMLInputElement | HTMLSelectElement)[] = [];
+    const invalid = [];
 
     required.forEach((name) => {
-      const field = form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement;
+      const field = form.elements.namedItem(name);
       clearError(field);
       if (!String(data.get(name) ?? '').trim()) {
         field.setAttribute('aria-invalid', 'true');
-        const error = document.querySelector<HTMLElement>(`[data-error-for="${name}"]`);
+        const error = document.querySelector('[data-error-for="' + name + '"]');
         if (error) error.textContent = errorMessages[name];
         invalid.push(field);
       }
@@ -119,7 +201,7 @@
 
     if (invalid.length) {
       if (summary) {
-        summary.textContent = 'Revisa los campos marcados para continuar.';
+        summary.textContent = 'Revisa los campos requeridos para continuar.';
         summary.hidden = false;
         summary.focus();
       }
@@ -132,7 +214,7 @@
       summary.textContent = '';
     }
 
-    const value = (name: string) => String(data.get(name) ?? '').trim();
+    const value = (name) => String(data.get(name) ?? '').trim();
     const whatsappUrl = buildWhatsAppUrl({
       origin: value('origen'),
       destination: value('destino'),

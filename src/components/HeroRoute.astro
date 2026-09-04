@@ -2,21 +2,57 @@
   <div class="hero-grid container">
     <div class="hero-copy" data-reveal>
       <p class="eyebrow"><span></span> Fletes y Mudanzas Sabino</p>
-      <h1 id="hero-title">Todo traslado merece una ruta <em>bien pensada.</em></h1>
-      <p class="hero-lead">Fletes, mudanzas residenciales y traslados comerciales con una comunicación directa desde el primer mensaje.</p>
+      <h1 id="hero-title">Tu mudanza, de origen a destino, <em>sin complicaciones.</em></h1>
+      <p class="hero-lead">Fletes y mudanzas residenciales y comerciales. Solicita tu cotización directamente por WhatsApp.</p>
+
+      <!-- Micro-cotizador integrado en Hero -->
+      <div class="hero-microquote" data-hero-microquote aria-label="Planificador rápido de traslado">
+        <div class="microquote-badge">
+          <span class="pulse-indicator" aria-hidden="true"></span>
+          <span>Ruta rápida · Origen a Destino</span>
+        </div>
+        <div class="microquote-bar">
+          <div class="micro-field">
+            <label for="micro-origin">
+              <span class="micro-dot origin-dot" aria-hidden="true"></span>
+              <span>Origen</span>
+            </label>
+            <input id="micro-origin" type="text" placeholder="¿De dónde sales?" autocomplete="off" />
+          </div>
+
+          <div class="micro-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+
+          <div class="micro-field">
+            <label for="micro-destination">
+              <span class="micro-dot dest-dot" aria-hidden="true"></span>
+              <span>Destino</span>
+            </label>
+            <input id="micro-destination" type="text" placeholder="¿A dónde vas?" autocomplete="off" />
+          </div>
+
+          <button type="button" class="button button-primary micro-btn" data-micro-cta>
+            <span>Cotizar</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
       <div class="hero-actions">
-        <a class="button button-primary" href="#cotizar">Cotizar mi mudanza <span aria-hidden="true">→</span></a>
+        <a class="button button-primary" href="#cotizar">Cotizar por WhatsApp <span aria-hidden="true">→</span></a>
         <a class="text-link" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
       </div>
+
       <a class="hero-phone" href="tel:+525532814905">
         <span class="phone-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M7.2 3.5 9.7 7 8.3 8.6c1.4 2.8 3.3 4.7 6.1 6.1l1.6-1.4 3.5 2.5-.7 3.1c-.2.8-.9 1.3-1.7 1.3C9.8 19.8 4.2 14.2 3.8 6.9c0-.8.5-1.5 1.3-1.7l2.1-.5Z" /></svg>
         </span>
-        <span><small>Teléfono y WhatsApp</small><strong>+52 55 3281 4905</strong></span>
+        <span><small>Teléfono y WhatsApp directo</small><strong>+52 55 3281 4905</strong></span>
       </a>
     </div>
 
-    <div class="route-system" aria-label="Representación de un trayecto organizado de origen a destino" data-reveal>
+    <div class="route-system" aria-label="Representación visual interactiva de la ruta de origen a destino" data-reveal>
       <div class="route-grid-lines" aria-hidden="true"></div>
       <div class="route-coordinate route-coordinate-a" aria-hidden="true">19°—MX / 01</div>
       <div class="route-coordinate route-coordinate-b" aria-hidden="true">RUTA / ENLACE</div>
@@ -25,7 +61,7 @@
         <span class="point-pulse" aria-hidden="true"></span>
         <small>01 · Punto de partida</small>
         <strong>Origen</strong>
-        <p>Cuéntanos desde dónde inicia el traslado.</p>
+        <p data-origin-display>Indica desde dónde inicia tu traslado.</p>
       </div>
 
       <svg class="route-canvas" viewBox="0 0 720 560" role="img" aria-hidden="true">
@@ -58,7 +94,7 @@
         <span class="destination-check" aria-hidden="true">✓</span>
         <small>03 · Punto de llegada</small>
         <strong>Destino</strong>
-        <p>Confirma a dónde necesitas llegar.</p>
+        <p data-destination-display>Confirma a dónde necesitas llegar.</p>
       </div>
 
       <div class="route-status" aria-hidden="true">
@@ -67,3 +103,62 @@
     </div>
   </div>
 </section>
+
+<script>
+  const microOrigin = document.querySelector('#micro-origin');
+  const microDest = document.querySelector('#micro-destination');
+  const microBtn = document.querySelector('[data-micro-cta]');
+  const originDisplay = document.querySelector('[data-origin-display]');
+  const destDisplay = document.querySelector('[data-destination-display]');
+
+  const syncToCanvas = () => {
+    if (originDisplay && microOrigin) {
+      originDisplay.textContent = microOrigin.value.trim() ? microOrigin.value.trim() : 'Indica desde dónde inicia tu traslado.';
+    }
+    if (destDisplay && microDest) {
+      destDisplay.textContent = microDest.value.trim() ? microDest.value.trim() : 'Confirma a dónde necesitas llegar.';
+    }
+  };
+
+  microOrigin?.addEventListener('input', syncToCanvas);
+  microDest?.addEventListener('input', syncToCanvas);
+
+  const transferToMainForm = () => {
+    const mainOrigin = document.querySelector('#origen');
+    const mainDest = document.querySelector('#destino');
+    const mainService = document.querySelector('#servicio');
+
+    if (mainOrigin && microOrigin && microOrigin.value.trim()) {
+      mainOrigin.value = microOrigin.value.trim();
+      mainOrigin.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    if (mainDest && microDest && microDest.value.trim()) {
+      mainDest.value = microDest.value.trim();
+      mainDest.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
+    const quoteSection = document.querySelector('#cotizar');
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        if (!mainOrigin?.value.trim()) {
+          mainOrigin?.focus();
+        } else if (!mainDest?.value.trim()) {
+          mainDest?.focus();
+        } else {
+          mainService?.focus();
+        }
+      }, 500);
+    }
+  };
+
+  microBtn?.addEventListener('click', transferToMainForm);
+  [microOrigin, microDest].forEach((input) => {
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        transferToMainForm();
+      }
+    });
+  });
+</script>

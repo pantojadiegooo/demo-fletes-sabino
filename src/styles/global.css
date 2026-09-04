@@ -563,3 +563,423 @@ h1, h2, h3 {
 @media (forced-colors: active) {
   .point-pulse, .destination-check, .contact-point i { forced-color-adjust: none; }
 }
+
+
+/* ===================================================
+   MEJORAS PROFESIONALES: FLETES Y MUDANZAS SABINO
+   =================================================== */
+
+/* Micro-cotizador en Hero */
+.hero-microquote {
+  margin: 2.2rem 0 2rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(184, 208, 240, 0.85);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 36px rgba(18, 58, 122, 0.09);
+  max-width: 38rem;
+  backdrop-filter: blur(10px);
+}
+
+.microquote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pulse-indicator {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.microquote-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.micro-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.micro-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-primary-dark);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.micro-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+.origin-dot { background: var(--color-primary); }
+.dest-dot { background: var(--color-success); }
+
+.micro-field input {
+  min-height: 2.6rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #c9d8eb;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  background: #f8fbff;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.micro-field input:focus {
+  border-color: var(--color-primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.micro-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7d96b8;
+  padding-top: 1.1rem;
+}
+.micro-arrow svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.micro-btn {
+  min-height: 2.6rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.88rem;
+  margin-top: 1.15rem;
+}
+
+/* Service Points List */
+.service-points {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.service-points li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.service-points li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: #3b82f6;
+  font-weight: 900;
+  font-size: 0.82rem;
+}
+
+.service-feature .service-points li::before {
+  color: #93c5fd;
+}
+
+/* Flujo de 3 Pasos en Cotizador */
+.quote-flow-container {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(184, 208, 240, 0.7);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+.quote-flow-title {
+  margin: 0 0 1rem;
+  color: var(--color-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Vista previa interactiva de WhatsApp en el Cotizador */
+.whatsapp-preview-card {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid #bce1ce;
+  border-radius: var(--radius-md);
+  background: #f0f7f4;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(18, 85, 62, 0.06);
+}
+
+.whatsapp-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: #176f58;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.wa-status-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wa-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  place-items: center;
+}
+.wa-icon svg {
+  width: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wa-badge {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.whatsapp-bubble {
+  position: relative;
+  margin: 1rem;
+  padding: 1rem 1.15rem 0.85rem;
+  border-radius: 0.85rem 0.85rem 0.85rem 0.2rem;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #d4eae0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #1f2937;
+}
+
+.bubble-greeting, .bubble-farewell {
+  margin: 0;
+  font-weight: 600;
+  color: #111827;
+}
+
+.bubble-fields {
+  margin: 0.55rem 0;
+  padding: 0.45rem 0;
+  border-top: 1px solid #eef3f0;
+  border-bottom: 1px solid #eef3f0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.bubble-fields p {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+.bubble-fields strong {
+  color: #064e3b;
+}
+
+.bubble-time {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+  color: #6b7280;
+  font-size: 0.68rem;
+}
+
+.bubble-checks {
+  color: #10b981;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+}
+
+/* Enlace directo de chat en Contact */
+.contact-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #bcd4f7;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.contact-wa-link:hover {
+  color: white;
+}
+
+/* Mobile Floating Bottom Bar */
+.mobile-floating-bar {
+  position: fixed;
+  z-index: 90;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid rgba(197, 215, 238, 0.8);
+  box-shadow: 0 -8px 24px rgba(10, 36, 75, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.mobile-bar-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.bar-btn {
+  min-height: 2.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.75rem;
+  font-weight: 750;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.bar-btn:active {
+  transform: scale(0.97);
+}
+
+.bar-btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bar-btn-whatsapp {
+  background: #176f58;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(23, 111, 88, 0.22);
+}
+
+.bar-btn-quote {
+  background: var(--color-primary);
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
+}
+
+/* Ocultar barra flotante en desktop */
+@media (min-width: 880px) {
+  .mobile-floating-bar {
+    display: none !important;
+  }
+}
+
+/* Espacio inferior en móvil para evitar tapar contenido */
+@media (max-width: 879px) {
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Ajustes Responsive Específicos */
+@media (max-width: 768px) {
+  .microquote-bar {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .micro-arrow {
+    display: none;
+  }
+  .micro-btn {
+    width: 100%;
+    margin-top: 0.4rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-microquote {
+    max-width: 100%;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-microquote {
+    max-width: 40rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: 82rem;
+  }
+  .hero-copy {
+    max-width: 46rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  .hero-lead {
+    font-size: 0.98rem;
+  }
+  .bar-btn {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.6rem;
+  }
+  .bar-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}

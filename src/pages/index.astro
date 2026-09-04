@@ -7,9 +7,10 @@ import Coverage from '../components/Coverage.astro';
 import QuoteWhatsApp from '../components/QuoteWhatsApp.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import MobileFloatingBar from '../components/MobileFloatingBar.astro';
 
 const title = 'Fletes y Mudanzas Sabino | Fletes y Mudanzas';
-const description = 'Solicita una cotización para fletes, mudanzas residenciales y mudanzas comerciales con Fletes y Mudanzas Sabino. Atención directa por WhatsApp.';
+const description = 'Fletes y mudanzas residenciales y comerciales con Fletes y Mudanzas Sabino. Solicita tu cotización de origen a destino directamente por WhatsApp.';
 ---
 
 <BaseLayout {title} {description}>
@@ -22,4 +23,5 @@ const description = 'Solicita una cotización para fletes, mudanzas residenciale
     <Contact />
   </main>
   <Footer />
+  <MobileFloatingBar />
 </BaseLayout>
