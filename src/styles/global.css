@@ -983,3 +983,228 @@ h1, h2, h3 {
     height: 1rem;
   }
 }
+
+
+/* ===================================================
+   BLOQUE VISUAL EDITORIAL: SABINO EN MOVIMIENTO
+   =================================================== */
+
+.services-gallery {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.gallery-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.gallery-copy {
+  max-width: 42rem;
+}
+
+.gallery-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.85rem, 4.5vw, 2.85rem);
+  color: var(--color-primary-dark);
+}
+
+.gallery-lead {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.04rem;
+  line-height: 1.65;
+}
+
+.gallery-note-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #cfe0f5;
+  border-radius: 999px;
+  background: #f4f8fe;
+  color: var(--color-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.badge-ring {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Layout Asimétrico Editorial */
+.gallery-layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.gallery-card {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-primary-dark);
+  border: 1px solid rgba(184, 208, 240, 0.65);
+  box-shadow: 0 14px 34px rgba(15, 42, 90, 0.07);
+  position: relative;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(15, 42, 90, 0.12);
+  border-color: #93c5fd;
+}
+
+.gallery-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms cubic-bezier(.2,.8,.2,1);
+}
+
+.gallery-card:hover .gallery-media img {
+  transform: scale(1.025);
+}
+
+.gallery-glass-caption {
+  position: absolute;
+  inset: auto 0.85rem 0.85rem 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(10, 26, 56, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: white;
+  z-index: 2;
+  transition: background 200ms ease;
+}
+
+.gallery-card:hover .gallery-glass-caption {
+  background: rgba(10, 26, 56, 0.94);
+}
+
+.caption-tag {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  color: #93c5fd;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gallery-glass-caption figcaption {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #f1f5f9;
+}
+
+/* Subcuadrícula para secundarias */
+.gallery-subgrid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Desktop: Layout Asimétrico (1 principal grande + 3 secundarias armonizadas) */
+@media (min-width: 880px) {
+  .gallery-layout {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+    min-height: 38rem;
+  }
+  .gallery-card-featured {
+    min-height: 100%;
+  }
+  .gallery-card-featured .gallery-media {
+    height: 100%;
+  }
+  .gallery-card-featured .gallery-media img {
+    height: 100%;
+    min-height: 38rem;
+  }
+  .gallery-subgrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .gallery-subgrid .gallery-card {
+    min-height: 11.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-layout {
+    grid-template-columns: 1.22fr 0.78fr;
+    min-height: 40rem;
+  }
+  .gallery-card-featured .gallery-media img {
+    min-height: 40rem;
+  }
+}
+
+/* Tablet: 2 Columnas ordenadas */
+@media (min-width: 560px) and (max-width: 879px) {
+  .gallery-layout {
+    grid-template-columns: 1fr;
+  }
+  .gallery-card-featured {
+    aspect-ratio: 16 / 10;
+  }
+  .gallery-subgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery-subgrid .gallery-card:last-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 21 / 9;
+  }
+}
+
+/* Móvil: Pila vertical fluida sin miniaturas diminutas */
+@media (max-width: 559px) {
+  .gallery-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .gallery-card {
+    aspect-ratio: 4 / 3;
+  }
+  .gallery-card-featured {
+    aspect-ratio: 16 / 11;
+  }
+  .gallery-glass-caption {
+    inset: auto 0.6rem 0.6rem 0.6rem;
+    padding: 0.65rem 0.8rem;
+  }
+  .gallery-glass-caption figcaption {
+    font-size: 0.78rem;
+  }
+  .caption-tag {
+    font-size: 0.62rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-card:hover .gallery-media img {
+    transform: none !important;
+  }
+}
