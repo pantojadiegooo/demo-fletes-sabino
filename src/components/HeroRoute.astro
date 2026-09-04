@@ -1,0 +1,69 @@
+<section class="hero section" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-grid container">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow"><span></span> Fletes y Mudanzas Sabino</p>
+      <h1 id="hero-title">Todo traslado merece una ruta <em>bien pensada.</em></h1>
+      <p class="hero-lead">Fletes, mudanzas residenciales y traslados comerciales con una comunicación directa desde el primer mensaje.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#cotizar">Cotizar mi mudanza <span aria-hidden="true">→</span></a>
+        <a class="text-link" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
+      </div>
+      <a class="hero-phone" href="tel:+525532814905">
+        <span class="phone-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7.2 3.5 9.7 7 8.3 8.6c1.4 2.8 3.3 4.7 6.1 6.1l1.6-1.4 3.5 2.5-.7 3.1c-.2.8-.9 1.3-1.7 1.3C9.8 19.8 4.2 14.2 3.8 6.9c0-.8.5-1.5 1.3-1.7l2.1-.5Z" /></svg>
+        </span>
+        <span><small>Teléfono y WhatsApp</small><strong>+52 55 3281 4905</strong></span>
+      </a>
+    </div>
+
+    <div class="route-system" aria-label="Representación de un trayecto organizado de origen a destino" data-reveal>
+      <div class="route-grid-lines" aria-hidden="true"></div>
+      <div class="route-coordinate route-coordinate-a" aria-hidden="true">19°—MX / 01</div>
+      <div class="route-coordinate route-coordinate-b" aria-hidden="true">RUTA / ENLACE</div>
+
+      <div class="route-point route-origin">
+        <span class="point-pulse" aria-hidden="true"></span>
+        <small>01 · Punto de partida</small>
+        <strong>Origen</strong>
+        <p>Cuéntanos desde dónde inicia el traslado.</p>
+      </div>
+
+      <svg class="route-canvas" viewBox="0 0 720 560" role="img" aria-hidden="true">
+        <defs>
+          <filter id="routeGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        <path class="route-shadow" d="M112 112 C 254 52, 240 250, 365 265 S 480 470, 615 423" />
+        <path class="route-line" pathLength="1" d="M112 112 C 254 52, 240 250, 365 265 S 480 470, 615 423" />
+        <g class="route-ticks">
+          <path d="M205 115l8 15" /><path d="M290 208l14-8" /><path d="M401 301l15-9" /><path d="M492 399l9-14" />
+        </g>
+        <circle class="route-traveler" r="7" fill="#fff" stroke="#2563eb" stroke-width="5" filter="url(#routeGlow)">
+          <animateMotion dur="8s" repeatCount="indefinite" path="M112 112 C 254 52, 240 250, 365 265 S 480 470, 615 423" />
+        </circle>
+      </svg>
+
+      <div class="route-stage stage-pack" aria-hidden="true">
+        <svg viewBox="0 0 36 36"><path d="M7 11 18 5l11 6v14L18 31 7 25Z"/><path d="m7 11 11 6 11-6M18 17v14"/></svg>
+        <span>Preparar</span>
+      </div>
+      <div class="route-stage stage-move" aria-hidden="true">
+        <svg viewBox="0 0 36 36"><path d="M5 23h25M22 15l8 8-8 8"/></svg>
+        <span>Trasladar</span>
+      </div>
+
+      <div class="route-point route-destination">
+        <span class="destination-check" aria-hidden="true">✓</span>
+        <small>03 · Punto de llegada</small>
+        <strong>Destino</strong>
+        <p>Confirma a dónde necesitas llegar.</p>
+      </div>
+
+      <div class="route-status" aria-hidden="true">
+        <span>Origen</span><i></i><span>Trayecto</span><i></i><span>Destino</span>
+      </div>
+    </div>
+  </div>
+</section>

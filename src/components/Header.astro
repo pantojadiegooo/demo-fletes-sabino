@@ -1,0 +1,87 @@
+<header class="site-header" data-header>
+  <div class="header-inner container">
+    <a class="brand" href="#inicio" aria-label="Fletes y Mudanzas Sabino, ir al inicio">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" rx="12" fill="currentColor" />
+        <circle cx="11" cy="27" r="3" fill="white" />
+        <circle cx="29" cy="13" r="3" fill="white" />
+        <path d="M13.5 25.5C17 23.5 16.5 17 21 17s4.5-2.8 5.5-3.2" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+      </svg>
+      <span>Fletes y Mudanzas <strong>Sabino</strong></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+      <span class="sr-only">Abrir menú</span>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-navigation" aria-label="Navegación principal" data-nav>
+      <a href="#servicios" data-nav-link>Servicios</a>
+      <a href="#cobertura" data-nav-link>Cobertura</a>
+      <a href="#cotizar" data-nav-link>Cotizar</a>
+      <a href="#contacto" data-nav-link>Contacto</a>
+      <a class="button button-small" href="#cotizar">Cotizar ahora</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]');
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const toggleLabel = toggle?.querySelector('.sr-only');
+  const nav = document.querySelector('[data-nav]');
+  const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+
+  const closeMenu = () => {
+    toggle?.setAttribute('aria-expanded', 'false');
+    if (toggleLabel) toggleLabel.textContent = 'Abrir menú';
+    nav?.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+  };
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    if (toggleLabel) toggleLabel.textContent = open ? 'Abrir menú' : 'Cerrar menú';
+    nav?.classList.toggle('is-open', !open);
+    document.body.classList.toggle('menu-open', !open);
+  });
+
+  nav?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 880) closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+      (toggle as HTMLButtonElement | null)?.focus();
+    }
+  });
+
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    const current = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!current) return;
+    navLinks.forEach((link) => {
+      const active = link.getAttribute('href') === `#${current.target.id}`;
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-32% 0px -58%', threshold: [0, 0.25, 0.6] });
+
+  sections.forEach((section) => observer.observe(section as Element));
+</script>

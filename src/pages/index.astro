@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroRoute from '../components/HeroRoute.astro';
+import Services from '../components/Services.astro';
+import Coverage from '../components/Coverage.astro';
+import QuoteWhatsApp from '../components/QuoteWhatsApp.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Fletes y Mudanzas Sabino | Fletes y Mudanzas';
+const description = 'Solicita una cotización para fletes, mudanzas residenciales y mudanzas comerciales con Fletes y Mudanzas Sabino. Atención directa por WhatsApp.';
+---
+
+<BaseLayout {title} {description}>
+  <Header />
+  <main id="contenido">
+    <HeroRoute />
+    <Services />
+    <Coverage />
+    <QuoteWhatsApp />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
